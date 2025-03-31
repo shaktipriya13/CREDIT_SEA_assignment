@@ -1,36 +1,34 @@
 import { useState } from "react";
-import { login } from "../../api/auth";
-import { useAuth } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../api/api";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const { setUser, setToken } = useAuth();
-    const navigate = useNavigate();
+    const [message, setMessage] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const { token, user } = await login(email, password);
-            localStorage.setItem("token", token);
-            setToken(token);
-            setUser(user);
-
-            if (user.role === "admin") navigate("/admin/dashboard");
-            else if (user.role === "verifier") navigate("/verifier/dashboard");
-            else navigate("/user/dashboard");
-        } catch (error) {
-            alert("Login failed!");
-        }
+    const handleLogin = async () => {
+        const result = await loginUser(username, password);
+        setMessage(result.message || "Login Successful!");
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <button type="submit">Login</button>
-        </form>
+        <div>
+            <h2>Login</h2>
+            <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={handleLogin}>Login</button>
+            <p>{message}</p>
+        </div>
     );
 };
 
