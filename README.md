@@ -101,7 +101,7 @@ Server will run at `http://localhost:5000`
 
 ## 🌐 Live Project
 
-🚀 **[Visit Live App](https://chatgpt.com/c/your-live-link.com)**
+🚀 **[Visit Live App](https://testprjct-git-main-priyashakti68-gmailcoms-projects.vercel.app/)**
 
 ---
 
