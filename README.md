@@ -95,16 +95,6 @@ Server will run at `http://localhost:5000`
 
 ---
 
-## 🎥 Demo Video
-
-📌 **[Watch Here](https://chatgpt.com/c/your-video-link.com)**
-
-## 🌐 Live Project
-
-🚀 **[Visit Live App](https://testprjct-git-main-priyashakti68-gmailcoms-projects.vercel.app/)**
-
----
-
 ## 🤝 Contribution
 
 Want to contribute? Follow these steps:
